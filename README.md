@@ -17,3 +17,20 @@ Button组件
 5. 兼容button原生组件属性ButtonHTMLAttributes
 6. 兼容a链接原生组件属性AnchorHTMLAttributes
 
+Icon组件
+* (使用了react-fontawesome组件 https://github.com/FortAwesome/react-fontawesome)
+* (图标库地址 https://fontawesome.com/icons?d=gallery)
+
+安装
+* npm i --save @fortawesome/fontawesome-svg-core 
+* npm i --save @fortawesome/free-solid-svg-icons
+* npm i --save @fortawesome/react-fontawesome
+
+配置
+>import { library } from '@fortawesome/fontawesome-svg-core'
+ import { fas } from '@fortawesome/free-solid-svg-icons'
+ library.add(fas)
+
+功能
+* 设置图标的主题色'primary' | 'success' | 'info' | 'warning' | 'danger'
+
