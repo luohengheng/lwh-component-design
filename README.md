@@ -10,12 +10,13 @@ hooks基础 https://reactjs.org/docs/hooks-intro.html
 #### 开发模块
 
 Button组件
-1. button类型包含'primary' | 'dashed' | 'dotted' | 'link'
-2. button尺寸 
-3. link类型下href target属性
-4. 用户自定义样式
-5. 兼容button原生组件属性ButtonHTMLAttributes
-6. 兼容a链接原生组件属性AnchorHTMLAttributes
+* button类型包含'primary' | 'dashed' | 'dotted' | 'link'
+* button支持icon属性
+* button尺寸 
+* link类型下href target属性
+* 用户自定义样式
+* 兼容button原生组件属性ButtonHTMLAttributes
+* 兼容a链接原生组件属性AnchorHTMLAttributes
 
 Icon组件
 * (使用了react-fontawesome组件 https://github.com/FortAwesome/react-fontawesome)

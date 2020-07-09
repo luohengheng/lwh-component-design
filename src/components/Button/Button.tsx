@@ -1,5 +1,7 @@
 import React, { FC, ButtonHTMLAttributes, AnchorHTMLAttributes, MouseEvent, MouseEventHandler } from 'react';
 import classNames from 'classnames';
+import Icon from '../Icon/Icon'
+import { IconProp, } from '@fortawesome/fontawesome-svg-core'
 
 type shapeType = 'circle' | 'round'
 type sizeType = 'large' | 'small'
@@ -10,6 +12,7 @@ interface BaseButtonProps {
     href?: string,
     shape?: shapeType,
     size?: sizeType,
+    icon?: string,
     target?: string,
     btnType?: btnState,
     className?: string,
@@ -25,12 +28,17 @@ type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 
 const ButtonComponent: FC<ButtonProps> = (props) => {
 
-    const { disabled, href, shape, size, target, btnType, children, className, ...restProps} = props
+    const { disabled, href, shape, size, target, btnType, children, className, icon, ...restProps} = props
     const clazz = classNames('lwh-btn', className, {
         [`btn-${btnType}`]: btnType,
         [`btn-${size}`]: size,
         [`btn-${shape}`]: shape === 'circle',
+        ['btn-icon-circle']: btnType !== 'link' && icon && shape === 'circle',
         disabled: disabled
+    })
+    const iconClazz = classNames({
+        ['btn-icon']: btnType !== 'link' && icon,
+
     })
 
     if (btnType === 'link') {
@@ -39,7 +47,12 @@ const ButtonComponent: FC<ButtonProps> = (props) => {
         )
     }else {
         return (
-            <button disabled={disabled} className={clazz} {...restProps}>{children}</button>
+            <button disabled={disabled} className={clazz} {...restProps}>
+                {children}
+                {
+                    icon && <Icon className={iconClazz} icon={icon as IconProp}/>
+                }
+            </button>
         )
     }
 }

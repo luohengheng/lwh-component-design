@@ -14,7 +14,6 @@ const Icon: FC<IconProps> = (props) => {
         [`icon-${theme}`]: theme
     })
 
-    console.log('aaa', clazz)
     return (
         <FontAwesomeIcon className={clazz} style={style} {...restProps}/>
     )
